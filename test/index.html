@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcss.com/require.js/2.3.5/require.js"></script>
+  <script>
+    require.config({
+      paths: {
+        element: '../src/element',
+      }
+    })
+    require(['element'], function() {
+      var ul = el('ul', {id: 'list'}, [
+        el('li', {class: 'item'}, ['Item 1']),
+        el('li', {class: 'item'}, ['Item 2']),
+        el('li', {class: 'item'}, ['Item 3'])
+      ])
+      
+      var ulRoot = ul.render()
+      document.body.appendChild(ulRoot)
+    });
+    
+  </script>
+</body>
+</html>
