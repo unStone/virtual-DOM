@@ -3,6 +3,11 @@ function Element(tagName, attributes, children) {
   this.tagName = tagName;
   this.attributes = attributes;
   this.children = children || [];
+
+  if(!children) {
+    this.attributes = {}
+    this.children = attributes || [];
+  }
 }
 
 Element.prototype.render = function() {

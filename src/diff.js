@@ -45,7 +45,7 @@ function diffAttributes (oldNode, newNode) {
   for (key in oldAttributes) {
     oldValue = oldAttributes[key];
     newValue = newAttributes[key];
-    if (newValue !== value) {
+    if (newValue !== oldValue) {
       count++;
       attributesPatches[key] = newValue;
     }
