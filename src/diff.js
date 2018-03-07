@@ -2,11 +2,11 @@
 function diff (oldTree, newTree) {
   var index = 0;
   var patches = {};
-  diffsTree(oldTree, newTree, index, patches);
+  diffNodes(oldTree, newTree, index, patches);
   return patches
 }
 
-function diffsTree(oldNode, newNode, index, patches) {
+function diffNodes(oldNode, newNode, index, patches) {
   var currentPatch = [];
 
   if (newNode === null) {
@@ -21,7 +21,7 @@ function diffsTree(oldNode, newNode, index, patches) {
     var attributesPatches = diffAttributes(oldNode, newNode);
     if (attributesPatches) currentPatch.push({type: patch.PROPS, props: propsPatches});
 
-    // 如果需要忽视该节点
+    // 如果不忽视该节点
     if(!isIgnoreChildren(newNode)) {
 
     }
