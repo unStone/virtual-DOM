@@ -12,9 +12,12 @@
     require.config({
       paths: {
         element: '../src/element',
+        diff: '../src/diff.js',
+        patch: '../src/patch.js',
+        util: '../src/util.js',
       }
     })
-    require(['element'], function() {
+    require(['element', 'diff', 'patch', 'util'], function() {
       var ul = el('ul', {id: 'list'}, [
         el('li', {class: 'item'}, ['Item 1']),
         el('li', {class: 'item'}, ['Item 2']),
