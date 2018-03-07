@@ -17,7 +17,7 @@
         util: '../src/util',
       }
     })
-    require(['element', 'diff', 'patch', 'util'], function() {
+    require(['util', 'element', 'diff', 'patch'], function() {
       var ul = el('ul', {id: 'list'}, [
         el('li', {class: 'item'}, ['Item 1']),
         el('li', {class: 'item'}, ['Item 2']),
