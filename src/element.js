@@ -1,7 +1,7 @@
 
-function Element(tagName, attribute, children) {
+function Element(tagName, attributes, children) {
   this.tagName = tagName;
-  this.attribute = attribute;
+  this.attributes = attributes;
   this.children = children || [];
 }
 
