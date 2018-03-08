@@ -30,16 +30,18 @@
 
       // 3. 生成新的虚拟DOM
       var newTree = el('div', {'id': 'container'}, [
-        el('h1', {style: 'color: red'}, ['simple virtal dom']),
+        el('h2', {style: 'color: red'}, ['simple virtal dom']),
         el('p', ['Hello, virtual-dom']),
         el('ul', [el('li'), el('li')])
       ])
 
-      // 4. 比较两棵虚拟DOM树的不同
-      var patches = diff(tree, newTree)
+      setTimeout(() => {
+        // 4. 比较两棵虚拟DOM树的不同
+        var patches = diff(tree, newTree);
 
-      // 5. 在真正的DOM元素上应用变更
-      patch(root, patches)
+        // 5. 在真正的DOM元素上应用变更
+        patch(root, patches);
+      }, 2000);
     });
     
   </script>

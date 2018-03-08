@@ -23,7 +23,13 @@ function diffNodes(oldNode, newNode, index, patches) {
 
     // 如果不忽视该节点
     if(!isIgnoreChildren(newNode)) {
-
+      diffChildren(
+        oldNode.children,
+        newNode.children,
+        index,
+        patches,
+        currentPatch
+      )
     }
   } else {
     currentPatch.push({type: patch.REPLACE, node: newNode});
@@ -34,6 +40,11 @@ function diffNodes(oldNode, newNode, index, patches) {
   }
 }
 
+function diffChildren (oldChildren, newChildren, index, patches, currentPatch) {
+  // 对比子节点 TODO
+
+}
+
 function diffAttributes (oldNode, newNode) {
   var count = 0;
   var oldAttributes = oldNode.attributes;
@@ -42,6 +53,7 @@ function diffAttributes (oldNode, newNode) {
   var key, oldValue, newValue;
   var attributesPatches = {};
 
+  // 如果属性不一致，则都用新的node节点的属性
   for (key in oldAttributes) {
     oldValue = oldAttributes[key];
     newValue = newAttributes[key];
@@ -51,6 +63,7 @@ function diffAttributes (oldNode, newNode) {
     }
   }
  
+  // 老节点不存在的属性，使用新的node节点的属性
   for (key in newAttributes) {
     if (!oldAttributes.hasOwnProperty(key)) {
       count++;
@@ -67,6 +80,7 @@ function diffAttributes (oldNode, newNode) {
 }
 
 function isIgnoreChildren (node) {
+  // 是否忽视diff TODO
   return false
 }
 

@@ -3,8 +3,8 @@ var REORDER = 1
 var PROPS = 2
 var TEXT = 3
 
-function patch () {
-  
+function patch (oldTree, patches) {
+  console.log(oldTree, patches);
 }
 patch.REPLACE = REPLACE;
 patch.REORDER = REORDER;
